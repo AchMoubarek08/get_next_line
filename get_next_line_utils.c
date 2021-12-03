@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:20:37 by amoubare          #+#    #+#             */
-/*   Updated: 2021/11/29 20:31:22 by amoubare         ###   ########.fr       */
+/*   Updated: 2021/12/02 03:34:09 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,23 +69,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
 
-	i = 0;
-	if ((char)c == '\0' && s[i] == '\0')
-		return (0);
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		i++;
-	}
-	if (s[i] == (char)c)
-		return ((char *)s + i);
-	return (NULL);
-}
 
 size_t	ft_strlen(const char *str)
 {
@@ -115,4 +99,38 @@ char	*ft_strdup(const char *s)
 	}
 	m[i] = '\0';
 	return (m);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	if ((char)c == '\0' && s[i] == '\0')
+		return (0);
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		i++;
+	}
+	if (s[i] == (char)c)
+		return ((char *)s + i);
+	return (NULL);
+}
+
+int	ft_int_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	if ((char)c == '\0' && s[i] == '\0')
+		return (0);
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return (i);
+		i++;
+	}
+	return (0);
 }

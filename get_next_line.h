@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:21:21 by amoubare          #+#    #+#             */
-/*   Updated: 2021/11/29 21:00:36 by amoubare         ###   ########.fr       */
+/*   Updated: 2021/12/02 03:34:21 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
 char    *get_next_line(int fd);
+int	ft_int_strchr(const char *s, int c);
 
 #endif
