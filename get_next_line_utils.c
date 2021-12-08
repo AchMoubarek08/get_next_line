@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:20:37 by amoubare          #+#    #+#             */
-/*   Updated: 2021/12/02 03:34:09 by amoubare         ###   ########.fr       */
+/*   Updated: 2021/12/08 03:25:00 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	if (!s1)
-		return (0);
+		return (ft_strdup(s2));
 	str = (char *)malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (str == 0)
 		return (0);
@@ -69,12 +69,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-
-
 size_t	ft_strlen(const char *str)
 {
-	size_t i;
-	
+	size_t	i;
+
 	i = 0;
 	while (str[i])
 		i++;
@@ -101,36 +99,20 @@ char	*ft_strdup(const char *s)
 	return (m);
 }
 
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	if ((char)c == '\0' && s[i] == '\0')
-		return (0);
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		i++;
-	}
-	if (s[i] == (char)c)
-		return ((char *)s + i);
-	return (NULL);
-}
-
 int	ft_int_strchr(const char *s, int c)
 {
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (-1);
 	if ((char)c == '\0' && s[i] == '\0')
-		return (0);
+		return (-1);
 	while (s[i])
 	{
 		if (s[i] == (char)c)
 			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
