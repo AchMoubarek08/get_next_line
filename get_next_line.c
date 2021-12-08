@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:20:46 by amoubare          #+#    #+#             */
-/*   Updated: 2021/12/08 03:24:23 by amoubare         ###   ########.fr       */
+/*   Updated: 2021/12/08 03:37:28 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 void	nadi(char **stock, char **ligne)
 {
 	char	*temp;
+	int		x;
 
+	x = ft_int_strchr(*stock, '\n') + 1;
 	temp = *ligne;
-	*ligne = ft_substr(*stock, 0, ft_int_strchr(*stock, '\n') + 1);
+	*ligne = ft_substr(*stock, 0, x);
 	free(temp);
-	*stock = ft_substr(*stock, ft_int_strchr(*stock, '\n') + 1, ft_strlen(*stock));
+	*stock = ft_substr(*stock, x, ft_strlen(*stock));
 }
 
 char	*get_next_line(int fd)
