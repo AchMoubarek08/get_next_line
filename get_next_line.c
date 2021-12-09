@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:20:46 by amoubare          #+#    #+#             */
-/*   Updated: 2021/12/08 03:37:28 by amoubare         ###   ########.fr       */
+/*   Updated: 2021/12/09 05:53:38 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,35 @@ void	nadi(char **stock, char **ligne)
 	int		x;
 
 	x = ft_int_strchr(*stock, '\n') + 1;
-	temp = *ligne;
 	*ligne = ft_substr(*stock, 0, x);
-	free(temp);
+	temp = *stock;
 	*stock = ft_substr(*stock, x, ft_strlen(*stock));
+	free(temp);
 }
 
 char	*get_next_line(int fd)
 {
 	int			i;
-	char		*buff;
+	char		buff[BUFFER_SIZE + 1];
 	char		*ligne;
 	static char	*stock;
 	char		*temp;
 
-	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	// buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	while (ft_int_strchr(stock, '\n') == -1)
 	{
 		i = read(fd, buff, BUFFER_SIZE);
 		if (i == 0 && ft_int_strchr(stock, '\n') == -1)
 		{
+			if (*stock == '\0')
+				return (NULL);
 			ligne = stock;
-			if (stock)
-				free(stock);
 			stock = NULL;
 			return (ligne);
 		}
 		else if (i == -1)
 		{
-			free (buff);
+			// free(buff);
 			return (0);
 		}
 		buff[i] = '\0';
@@ -54,21 +54,23 @@ char	*get_next_line(int fd)
 		stock = ft_strjoin(stock, buff);
 		if (temp)
 			free(temp);
+					
 	}
-	free(buff);
+	
 	nadi(&stock, &ligne);
 	return (ligne);
 }
-// int main()
-// {
-//     char *k;
-//     int fd;
-//     fd = open("filetest",  O_RDONLY);
-//     k = get_next_line(fd);
-//     while(k)
-//     {
-//         printf("%s", k);
-//         free(k);
-//         k = get_next_line(fd);
-//     }
-// }
+int main()
+{
+    char *k;
+    int fd;
+    fd = open("filetest",  O_RDONLY);
+    k = get_next_line(fd);
+    printf("%s", k);
+	k = get_next_line(fd);
+    printf("%s", k);
+	k = get_next_line(fd);
+    printf("%s", k);
+	k = get_next_line(fd);
+    printf("%s", k);
+}
