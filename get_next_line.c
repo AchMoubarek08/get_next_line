@@ -38,8 +38,11 @@ char	*get_next_line(int fd)
 		i = read(fd, buff, BUFFER_SIZE);
 		if (i == 0 && ft_int_strchr(stock, '\n') == -1)
 		{
-			if (*stock == '\0')
+			if (!(stock == NULL) && *stock == '\0')
+			{
+				free(stock);
 				return (NULL);
+			}
 			ligne = stock;
 			stock = NULL;
 			return (ligne);
@@ -60,17 +63,24 @@ char	*get_next_line(int fd)
 	nadi(&stock, &ligne);
 	return (ligne);
 }
-int main()
-{
-    char *k;
-    int fd;
-    fd = open("filetest",  O_RDONLY);
-    k = get_next_line(fd);
-    printf("%s", k);
-	k = get_next_line(fd);
-    printf("%s", k);
-	k = get_next_line(fd);
-    printf("%s", k);
-	k = get_next_line(fd);
-    printf("%s", k);
-}
+// int main()
+// {
+//     char *k;
+//     int fd;
+//     fd = open("filetest",  O_RDONLY);
+    
+//     // printf("%s", k);
+// 	// k = get_next_line(fd);
+//     // printf("%s", k);
+// 	// k = get_next_line(fd);
+//     // printf("%s", k);
+// 	k = get_next_line(fd);
+//     // printf("%s", k);
+// 	while(k)
+// 	{
+// 		printf("%s", k);
+// 		k = get_next_line(fd);		
+// 	}
+// 	printf("%s", k);
+
+// }
