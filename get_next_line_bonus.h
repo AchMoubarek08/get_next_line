@@ -6,12 +6,12 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:21:21 by amoubare          #+#    #+#             */
-/*   Updated: 2021/12/12 23:15:47 by amoubare         ###   ########.fr       */
+/*   Updated: 2021/12/13 02:57:24 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef     GET_NEXT_LINE_H
-# define    GET_NEXT_LINE_H
+#ifndef     GET_NEXT_LINE_BONUS_H
+# define    GET_NEXT_LINE_BONUS_H
 
 # include <stdlib.h>
 # include <stdio.h>
